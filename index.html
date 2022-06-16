@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        fieldset {
+        width: 40rem;
+        margin: 100px auto;
+        border: 5px solid rgb(99, 99, 194);
+        /* border-radius:20%  ; */
+        height:300px;
+    }
+    legend {
+        color:red;
+        width: 50%;
+    }
+    p{
+        background-color:rgb(99, 99, 194);
+        color:white;
+        width:90%;
+        font-size:20px;
+        text-align: center;
+        margin:auto
+    }
+    #ketNoi{
+      display:none;
+    }
+    </style>
+  </head>
+  <body>
+  
+    <!-- BÀI 1: TÍNH TIỀN THUẾ -->
+    <fieldset>
+        <legend class="text-center">BÀI 1: TÍNH TIỀN THUẾ</legend>
+        <div class="my-3 text-center">
+            <input class="ml-2" id="hoTen" type="text" placeholder="nhập họ tên" >
+            <input class="ml-2" id="thuNhap" type="number" placeholder="nhập  thu nhập năm ">
+            <input class="ml-2" id="soNguoi" type="number" placeholder="số người phụ thuộc">
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-primary ml-4 mt-4" id="btnTinhTien">Tính Tiền Thuế</button>
+        </div>
+        <br>
+        <p id="pTinhTien"></p>
+    </fieldset>
+
+    <!-- BÀI 2:TÍNH TIỀN CÁP -->
+
+    <fieldset>
+      <legend class="text-center">BÀI 2:TÍNH TIỀN CÁP</legend>
+      <div class="my-3 text-center">
+        
+          <select name="" id="chonKh">
+            <option value="0">Chọn loại khách hàng</option>
+            <option value="nhaDan">Nhà dân</option>
+            <option value="doanhNghiep">Doanh nghiệp</option>
+
+          </select>
+
+
+          <input class="ml-2" id="maKh" type="text" placeholder="nhập mã khách hàng">
+          <input class="ml-2" id="soKenh" type="number" placeholder="số kênh cao cấp">
+      </div>
+      <br>
+      <input class="ml-4 " type="text" id="ketNoi" placeholder="số ô kết nối">
+      <br>
+      <div>
+          <button class="btn btn-primary ml-4 mt-4" id="btnTinhTienCap">Tính Tiền Cáp</button>
+      </div>
+      <br>
+      
+      <p id="pTinhTienCap"></p>
+  </fieldset>
+
+
+
+    <script src="./main.js"></script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
