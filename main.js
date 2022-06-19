@@ -5,7 +5,7 @@ btnTinhTien.onclick = function() {
     var soNguoi = +document.getElementById('soNguoi').value;
     var pTinhTien = document.getElementById('pTinhTien');
     
-    if(thuNhap > 10e6 && thuNhap <= 60e6){
+    if( thuNhap <= 60e6){ // theo đề bài < 60e6
         var tien = (thuNhap - 4e6 - soNguoi * 1.6e6)*0.05
         pTinhTien.innerHTML = tien.toLocaleString() + 'VND'
     }else if(thuNhap > 60e6 && thuNhap <= 120e6){
@@ -34,17 +34,16 @@ btnTinhTien.onclick = function() {
 
 // BÀI 2:TÍNH TIỀN CÁP
 
-var chonKh = document.getElementById('chonKh');
-chonKh.onchange = function ketQua() {
-    var Kh = document.getElementById('chonKh').value;
-   
-    if(Kh === 'doanhNghiep'){
-        var ketNoi = document.getElementById('ketNoi');
-        ketNoi.style.display = 'block' 
-  
+
+var chonKh =document.getElementById('chonKh');
+chonKh.onclick = function() {
+    var kH = document.getElementById('chonKh').value
+    if((kH) == 'doanhNghiep'){
+        document.getElementById('ketNoi').style.display = 'block'
+    }else if(kH == ''){
+        pTinhTien.innerHTML = 'Vui lòng chọn mục khách hàng'
     }
 }
-// var chonKh = ketQua();
 
 var btnTinhTienCap = document.getElementById('btnTinhTienCap');
 btnTinhTienCap.onclick = function() {
@@ -55,16 +54,22 @@ btnTinhTienCap.onclick = function() {
 
     var pTinhTienCap = document.getElementById('pTinhTienCap')
 
-    if(chonKh === 'nhaDan'){
-        var tien = (4.5 + 20.5 + soKenh * 7.5).toLocaleString();
+    if(chonKh === 'nhaDan' && soKenh !==0){
+        var tien = (4.5 + 20.5 + soKenh * 7.5);
         pTinhTienCap.innerHTML = `${maKh}, số tiền là: ${tien} $ `
-    }else if(chonKh === 'doanhNghiep' && ketNoi <= 10){
-        var tien = (15 + 75 + soKenh * 50).toLocaleString();
-        pTinhTienCap.innerHTML = `${maKh}, ${tien} $ `
-    }else if(chonKh === 'doanhNghiep' && ketNoi > 10){
-        var tien = (15 + 75 + soKenh * 50 + (ketNoi - 10) * 5).toLocaleString();
+    }else if(chonKh === 'doanhNghiep' && ketNoi <= 10 && soKenh !==0){
+        var tien = (15 + 75 + soKenh * 50);
         pTinhTienCap.innerHTML = `${maKh}, số tiền là: ${tien} $ `
+       
+    }else if(chonKh === 'doanhNghiep' && ketNoi > 10 && soKenh !==0){
+        var tien = (15 + 75 + soKenh * 50 + (ketNoi - 10) * 5);
+        pTinhTienCap.innerHTML = `${maKh}, số tiền là: ${tien} $ `
+      
+    }else{
+        pTinhTienCap.innerHTML = ' không xác định '
+        
     }
-
+    
+    // pTinhTienCap.innerHTML = `${maKh}, số tiền là: ${tien} $ `  //undefined
     
 }
